@@ -1,3 +1,107 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Govt. Certified Mobile Console</title>
+    <style>
+        /* --- AAPKA ORIGINAL DESIGN (SCREENSHOT SE) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Consolas', 'Courier New', monospace;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            background-color: #000;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        #matrix-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; min-height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .main-content {
+            width: 100%;
+            max-width: 450px;
+            z-index: 3;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .trust-badge {
+            border: 2px solid #D4AF37;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 95%;
+        }
+
+        .govt-text {
+            color: #D4AF37;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px #D4AF37;
+        }
+
+        .service-list { width: 100%; margin-bottom: 25px; }
+        .service-row {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 12px 0;
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+
+        .row-1 { border-left: 5px solid #00d2ff; color: #00d2ff; }
+        .row-2 { border-left: 5px solid #ffcc00; color: #ffcc00; }
+        .row-3 { border-left: 5px solid #ff0055; color: #ff0055; }
+        .row-4 { border-left: 5px solid #00ff41; color: #00ff41; }
+        .row-5 { border-left: 5px solid #bc13fe; color: #bc13fe; }
+        .row-6 { border-left: 5px solid #ff5e00; color: #ff5e00; }
+
+        .price { color: #fff; }
+
+        /* --- THE FIXED BUTTON --- */
+        .contact-btn {
+            display: block;
+            background: linear-gradient(45deg, #0084FF, #00C6FF);
+            color: #fff;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0, 132, 255, 0.6);
+            width: 90%;
+            margin: 10px auto;
+            border: none;
             cursor: pointer;
             text-align: center;
         }
@@ -5,7 +109,7 @@
         .footer-logs {
             margin-top: 25px;
             font-size: 0.7rem; color: #00ff41;
-            opacity: 0.6; letter-spacing: 1px;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -17,14 +121,10 @@
         <div class="main-content">
             
             <div class="trust-badge">
-                <div style="font-size: 35px; margin-bottom: 5px;">🛡️</div>
+                <div style="font-size: 35px;">🛡️</div>
                 <div class="govt-text">GOVT. CERTIFIED</div>
-                <div style="font-size: 0.8rem; margin-top: 5px; letter-spacing: 1px;">
-                    100% TRUSTED & GENUINE WORK ★★★★★
-                </div>
+                <div style="font-size: 0.8rem; margin-top: 5px;">100% TRUSTED & GENUINE WORK ★★★★★</div>
             </div>
-
-            <p style="font-size: 0.85rem; margin-bottom: 15px;">Jisko bhi work karwana ho message karein.</p>
 
             <div class="service-list">
                 <div class="service-row row-1"><span>> Instagram Access</span> <span class="price">499/-</span></div>
@@ -35,9 +135,9 @@
                 <div class="service-row row-6"><span>> Full Phone Access</span> <span class="price">999/-</span></div>
             </div>
 
-            <a href="https://m.me/61573210740924" target="_blank" class="contact-btn">
+            <button onclick="fixMessenger()" class="contact-btn">
                 CONTACT ON MESSENGER
-            </a>
+            </button>
 
             <div class="footer-logs">
                 [SYSTEM: SECURE] [MOBILE: OPTIMIZED] [VERIFIED]
@@ -46,6 +146,7 @@
     </div>
 
     <script>
+        // Matrix Effect Logic
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -54,7 +155,6 @@
         const fontSize = 16;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
-
         function draw() {
             ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -68,6 +168,20 @@
             }
         }
         setInterval(draw, 33);
+
+        // --- THE FIXED REDIRECT LOGIC ---
+        function fixMessenger() {
+            // Aapka Page ID
+            const pageID = "61573210740924"; 
+            
+            // Format 1: Sabse pehle seedha App kholne ki koshish karein (DP isi se dikhegi)
+            window.location.href = "fb-messenger://user-thread/" + pageID;
+
+            // Format 2: Agar 500ms mein app nahi khuli, toh Official Web link par bhej dega
+            setTimeout(function() {
+                window.location.href = "https://m.me/" + pageID;
+            }, 500);
+        }
     </script>
 </body>
 </html>
