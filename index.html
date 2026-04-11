@@ -5,62 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Govt. Certified Mobile Console</title>
     <style>
-        /* --- DESIGN AS PER SCREENSHOT 1000075282.jpg --- */
+        /* --- EXACT ORIGINAL STYLE SEEN IN YOUR SCREENSHOTS --- */
         * {
             margin: 0; padding: 0; box-sizing: border-box;
             font-family: 'Consolas', 'Courier New', monospace;
             -webkit-tap-highlight-color: transparent;
         }
-        body, html { height: 100%; width: 100%; background-color: #000; overflow-x: hidden; color: #fff; }
-        #matrix-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+
+        body, html {
+            height: 100%; width: 100%;
+            background-color: #000; overflow-x: hidden; color: #fff;
+        }
+
+        #matrix-canvas {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: 1;
+        }
+
         .overlay {
-            position: absolute; top: 0; left: 0; width: 100%; min-height: 100%;
+            position: absolute; top: 0; left: 0;
+            width: 100%; min-height: 100%;
             background: rgba(0, 0, 0, 0.4); z-index: 2;
             display: flex; flex-direction: column; align-items: center; padding: 15px;
         }
-        .main-content { width: 100%; max-width: 450px; z-index: 3; text-align: center; margin-top: 15px; }
+
+        .main-content {
+            width: 100%; max-width: 450px; z-index: 3;
+            text-align: center; margin-top: 15px;
+        }
+
+        /* GOVT. BADGE DESIGN */
         .trust-badge {
-            display: inline-block; border: 2px solid #D4AF37; background: rgba(0, 0, 0, 0.85);
-            padding: 15px; border-radius: 15px; box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            display: inline-block; border: 2px solid #D4AF37;
+            background: rgba(0, 0, 0, 0.85); padding: 15px;
+            border-radius: 15px; box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
             width: 95%; margin-bottom: 25px;
         }
-        .govt-text { color: #D4AF37; font-size: 1.3rem; font-weight: bold; text-transform: uppercase; text-shadow: 0 0 10px rgba(212, 175, 55, 1); }
+
+        .govt-text {
+            color: #D4AF37; font-size: 1.3rem; font-weight: bold;
+            text-transform: uppercase; text-shadow: 0 0 10px rgba(212, 175, 55, 1);
+        }
+
+        /* SERVICE LIST WITH MULTI-COLOR BORDERS */
         .service-list { width: 100%; margin-bottom: 25px; }
         .service-row {
             background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(5px);
             margin: 10px 0; padding: 16px; border-radius: 10px;
             display: flex; justify-content: space-between; align-items: center; font-weight: bold;
         }
+
         .row-1 { border-left: 5px solid #00d2ff; color: #00d2ff; }
         .row-2 { border-left: 5px solid #ffcc00; color: #ffcc00; }
         .row-3 { border-left: 5px solid #ff0055; color: #ff0055; }
         .row-4 { border-left: 5px solid #00ff41; color: #00ff41; }
         .row-5 { border-left: 5px solid #bc13fe; color: #bc13fe; }
         .row-6 { border-left: 5px solid #ff5e00; color: #ff5e00; }
+
         .price { color: #fff; font-weight: 900; }
 
-        /* --- THE WORKING BUTTON --- */
+        /* THE ORIGINAL GREEN BUTTON */
         .messenger-btn {
             display: block; background: #00ff41; color: #000;
             text-decoration: none; padding: 18px; border-radius: 50px;
             font-weight: bold; font-size: 1.1rem; text-transform: uppercase;
-            box-shadow: 0 5px 20px rgba(0, 255, 65, 0.6);
-            margin: 0 auto; width: 90%; border: none; cursor: pointer;
+            box-shadow: 0 5px 25px rgba(0, 255, 65, 0.6);
+            margin: 10px auto; width: 90%; border: none; cursor: pointer;
         }
-        .footer-logs { margin-top: 25px; font-size: 0.7rem; color: #00ff41; opacity: 0.6; }
+
+        .footer-logs {
+            margin-top: 25px; font-size: 0.7rem; color: #00ff41; opacity: 0.6;
+        }
     </style>
 </head>
 <body>
+
     <canvas id="matrix-canvas"></canvas>
+
     <div class="overlay">
         <div class="main-content">
             <div class="trust-badge">
                 <div style="font-size: 35px; margin-bottom: 5px;">🛡️</div>
                 <div class="govt-text">GOVT. CERTIFIED</div>
-                <div style="font-size: 0.85rem; color: #fff; margin-top: 8px; font-weight: bold;">100% TRUSTED & GENUINE WORK ★★★★★</div>
+                <div style="font-size: 0.85rem; color: #fff; margin-top: 8px; font-weight: bold;">
+                    100% TRUSTED & GENUINE WORK ★★★★★
+                </div>
                 <p style="font-size: 8px; color: #D4AF37; margin-top: 5px;">CERTIFICATE: ARYAN_OFFICIAL_VERIFIED</p>
             </div>
+
             <p style="font-size: 0.85rem; margin-bottom: 15px;">Jisko bhi work karwana ho message karein.</p>
+
             <div class="service-list">
                 <div class="service-row row-1"><span>> Instagram Access</span> <span class="price">499/-</span></div>
                 <div class="service-row row-2"><span>> Facebook Access</span> <span class="price">499/-</span></div>
@@ -70,14 +104,18 @@
                 <div class="service-row row-6"><span>> Full Phone Access</span> <span class="price">999/-</span></div>
             </div>
 
-            <button onclick="openMessenger()" class="messenger-btn">CONTACT ON MESSENGER</button>
+            <button onclick="smartRedirect()" class="messenger-btn">
+                CONTACT ON MESSENGER
+            </button>
 
-            <div class="footer-logs">[SYSTEM: SECURE] [MOBILE: OPTIMIZED] [VERIFIED]</div>
+            <div class="footer-logs">
+                [SYSTEM: SECURE] [MOBILE: OPTIMIZED] [VERIFIED]
+            </div>
         </div>
     </div>
 
     <script>
-        // Matrix Animation (Same as Original)
+        // Matrix Animation Logic
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -85,6 +123,7 @@
         const fontSize = 16;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
+
         function draw() {
             ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "#00ff41"; ctx.font = fontSize + "px monospace";
@@ -97,16 +136,23 @@
         }
         setInterval(draw, 33);
 
-        // --- THE EXACT FIX FOR MESSENGER REDIRECT ---
-        function openMessenger() {
+        // --- FINAL REDIRECT SOLUTION ---
+        function smartRedirect() {
+            // Numeric Page ID is most stable for Deep Linking
             const pageID = "61573210740924"; 
-            // Step 1: Forcefully try to open the Messenger APP (App ke andar DP hamesha dikhti hai)
-            window.location.href = "fb-messenger://user-thread/" + pageID;
             
-            // Step 2: Fallback (Agar 1 sec tak app nahi khuli toh browser link open karega)
+            // Format 1: Direct Messenger App Deep Link (Best for showing DP)
+            const appLink = "fb-messenger://user-thread/" + pageID;
+            // Format 2: Official m.me Redirect (Fallback)
+            const webLink = "https://m.me/" + pageID;
+
+            // Try to force open the app first
+            window.location.href = appLink;
+
+            // If app doesn't trigger within 500ms, use the web-based redirect
             setTimeout(function() {
-                window.location.href = "https://m.me/" + pageID;
-            }, 1000);
+                window.location.href = webLink;
+            }, 500);
         }
     </script>
 </body>
