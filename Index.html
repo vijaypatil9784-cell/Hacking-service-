@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Govt. Certified Mobile Console</title>
+    <style>
+        /* Base Reset for Mobile Smoothness */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Consolas', 'Courier New', monospace;
+            -webkit-tap-highlight-color: transparent; /* Mobile click shadow remove */
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            background-color: #000;
+            overflow-x: hidden; /* Side scroll rokne ke liye */
+            color: #fff;
+        }
+
+        /* --- LIVE HACKING BACKGROUND --- */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* --- SMOOTH MOBILE OVERLAY --- */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            padding-bottom: 40px;
+        }
+
+        .main-content {
+            width: 100%;
+            max-width: 450px; /* Mobile standard width */
+            z-index: 3;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* --- POP-UP GOVT BADGE (SMARTPHONE OPTIMIZED) --- */
+        .trust-badge-container {
+            margin-bottom: 25px;
+            animation: popupPulse 2s infinite ease-in-out;
+            width: 100%;
+        }
+
+        .trust-badge {
+            display: inline-block;
+            border: 2px solid #D4AF37;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            width: 95%;
+        }
+
+        .govt-text {
+            color: #D4AF37;
+            font-size: 1.3rem; /* Dynamic font size */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 1);
+        }
+
+        .verified-line {
+            color: #fff;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        @keyframes popupPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- FLOATING SERVICE LIST (MOBILE ROWS) --- */
+        .service-list {
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .service-row {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            margin: 10px 0;
+            padding: 16px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Row Colors */
+        .service-row:nth-child(1) { border-left: 4px solid #00d2ff; color: #00d2ff; }
+        .service-row:nth-child(2) { border-left: 4px solid #ffcc00; color: #ffcc00; }
+        .service-row:nth-child(3) { border-left: 4px solid #ff0055; color: #ff0055; }
+        .service-row:nth-child(4) { border-left: 4px solid #00ff41; color: #00ff41; }
+        .service-row:nth-child(5) { border-left: 4px solid #bc13fe; color: #bc13fe; }
+        .service-row:nth-child(6) { border-left: 4px solid #ff5e00; color: #ff5e00; }
+
+        .service-name { font-size: 0.95rem; font-weight: bold; }
+        .price { font-size: 1.1rem; font-weight: 900; }
+
+        /* --- LARGE MOBILE WHATSAPP BUTTON --- */
+        .wa-btn {
+            display: block;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: #fff;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .wa-btn:active { transform: scale(0.98); } /* Click effect for mobile */
+
+        .footer-logs {
+            margin-top: 30px;
+            font-size: 0.7rem;
+            color: #00ff41;
+            opacity: 0.5;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="overlay">
+        <div class="main-content">
+            
+            <div class="trust-badge-container">
+                <div class="trust-badge">
+                    <div style="font-size: 35px; margin-bottom: 5px;">🛡️</div>
+                    <div class="govt-text">GOVT. CERTIFIED</div>
+                    <div class="verified-line">100% TRUSTED & GENUINE WORK ★★★★★</div>
+                    <p style="font-size: 9px; color: #D4AF37; margin-top: 5px;">CERTIFICATE: ARYAN_OFFICIAL_VERIFIED</p>
+                </div>
+            </div>
+
+            <p style="color: #fff; font-size: 0.9rem; margin-bottom: 15px; opacity: 0.8;">Jisko bhi work karwana ho message karein.</p>
+
+            <div class="service-list">
+                <div class="service-row"><span class="service-name">> Instagram Access</span> <span class="price">499/-</span></div>
+                <div class="service-row"><span class="service-name">> Facebook Access</span> <span class="price">499/-</span></div>
+                <div class="service-row"><span class="service-name">> Snapchat Access</span> <span class="price">499/-</span></div>
+                <div class="service-row"><span class="service-name">> WhatsApp Login</span> <span class="price">699/-</span></div>
+                <div class="service-row"><span class="service-name">> Gmail Recovery</span> <span class="price">799/-</span></div>
+                <div class="service-row"><span class="service-name">> Full Phone Access</span> <span class="price">999/-</span></div>
+            </div>
+
+            <a href="https://wa.me/91XXXXXXXXXX?text=Hello,%20mujhe%20kaam%20karwana%20hai" class="wa-btn">
+                Contact on WhatsApp
+            </a>
+
+            <div class="footer-logs">
+                [SYSTEM: SECURE] [MOBILE: OPTIMIZED] [VERIFIED]
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*";
+        const fontSize = 16;
+        let columns = canvas.width / fontSize;
+        let drops = [];
+
+        function initDrops() {
+            columns = canvas.width / fontSize;
+            drops = [];
+            for (let x = 0; x < columns; x++) drops[x] = 1;
+        }
+        initDrops();
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#00ff41";
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 35);
+    </script>
+</body>
+</html>
