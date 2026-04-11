@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Govt. Certified Mobile Console</title>
     <style>
-        /* --- Original Style from Screenshot --- */
+        /* --- ORIGINAL DESIGN MAINTAINED --- */
         * {
             margin: 0;
             padding: 0;
@@ -24,19 +24,15 @@
 
         #matrix-canvas {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: 1;
         }
 
         .overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            min-height: 100%;
+            top: 0; left: 0;
+            width: 100%; min-height: 100%;
             background: rgba(0, 0, 0, 0.5);
             z-index: 2;
             display: flex;
@@ -53,7 +49,6 @@
             margin-top: 10px;
         }
 
-        /* --- GOVT. CERTIFIED BADGE --- */
         .trust-badge {
             border: 2px solid #D4AF37;
             background: rgba(0, 0, 0, 0.9);
@@ -72,7 +67,6 @@
             text-shadow: 0 0 10px #D4AF37;
         }
 
-        /* --- SERVICE LIST (Original Colors) --- */
         .service-list { width: 100%; margin-bottom: 25px; }
         .service-row {
             background: rgba(255, 255, 255, 0.1);
@@ -85,7 +79,6 @@
             font-weight: bold;
         }
 
-        /* Colors as per screenshot */
         .row-1 { border-left: 5px solid #00d2ff; color: #00d2ff; }
         .row-2 { border-left: 5px solid #ffcc00; color: #ffcc00; }
         .row-3 { border-left: 5px solid #ff0055; color: #ff0055; }
@@ -95,7 +88,7 @@
 
         .price { color: #fff; }
 
-        /* --- CONTACT BUTTON --- */
+        /* --- THE FIXED BUTTON --- */
         .contact-btn {
             display: block;
             background: linear-gradient(45deg, #0084FF, #00C6FF);
@@ -110,14 +103,13 @@
             margin: 10px auto;
             border: none;
             cursor: pointer;
+            text-align: center;
         }
 
         .footer-logs {
             margin-top: 25px;
-            font-size: 0.7rem;
-            color: #00ff41;
-            opacity: 0.6;
-            letter-spacing: 1px;
+            font-size: 0.7rem; color: #00ff41;
+            opacity: 0.6; letter-spacing: 1px;
         }
     </style>
 </head>
@@ -134,7 +126,6 @@
                 <div style="font-size: 0.8rem; margin-top: 5px; letter-spacing: 1px;">
                     100% TRUSTED & GENUINE WORK ★★★★★
                 </div>
-                <p style="font-size: 8px; color: #D4AF37; margin-top: 5px;">CERTIFICATE: ARYAN_OFFICIAL_VERIFIED</p>
             </div>
 
             <p style="font-size: 0.85rem; margin-bottom: 15px;">Jisko bhi work karwana ho message karein.</p>
@@ -148,9 +139,9 @@
                 <div class="service-row row-6"><span>> Full Phone Access</span> <span class="price">999/-</span></div>
             </div>
 
-            <button onclick="goToMessenger()" class="contact-btn">
+            <a href="https://m.me/61573210740924" target="_blank" class="contact-btn">
                 CONTACT ON MESSENGER
-            </button>
+            </a>
 
             <div class="footer-logs">
                 [SYSTEM: SECURE] [MOBILE: OPTIMIZED] [VERIFIED]
@@ -159,12 +150,11 @@
     </div>
 
     <script>
-        // Matrix Effect
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*";
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         const fontSize = 16;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
@@ -182,19 +172,6 @@
             }
         }
         setInterval(draw, 33);
-
-        // MESSENGER REDIRECT FIX
-        function goToMessenger() {
-            const pageID = "61573210740924"; // Aapki Page ID
-            
-            // Try opening in Messenger App first
-            window.location.href = "fb-messenger://user-thread/" + pageID;
-
-            // Fallback to browser if App not found
-            setTimeout(function() {
-                window.location.href = "https://m.me/" + pageID;
-            }, 500);
-        }
     </script>
 </body>
 </html>
