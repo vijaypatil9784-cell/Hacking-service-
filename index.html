@@ -3,56 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
     <title>Govt. Certified Mobile Console</title>
     <style>
-        /* --- EXACT ORIGINAL STYLE SEEN IN YOUR SCREENSHOTS --- */
+        /* --- ORIGINAL FULL-SIZE STYLE (SCREENSHOT 1000075282.jpg) --- */
         * {
-            margin: 0; padding: 0; box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Consolas', 'Courier New', monospace;
             -webkit-tap-highlight-color: transparent;
         }
 
         body, html {
-            height: 100%; width: 100%;
-            background-color: #000; overflow-x: hidden; color: #fff;
+            height: 100%;
+            width: 100%;
+            background-color: #000;
+            overflow: hidden;
+            color: #fff;
         }
 
+        /* MATRIX BACKGROUND (Original Animation) */
         #matrix-canvas {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%; z-index: 1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
         .overlay {
-            position: absolute; top: 0; left: 0;
-            width: 100%; min-height: 100%;
-            background: rgba(0, 0, 0, 0.4); z-index: 2;
-            display: flex; flex-direction: column; align-items: center; padding: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            overflow-y: auto; /* Scrollable on smaller screens */
         }
 
         .main-content {
-            width: 100%; max-width: 450px; z-index: 3;
-            text-align: center; margin-top: 15px;
+            width: 100%;
+            max-width: 450px; /* ORIGINAL WIDTH */
+            z-index: 3;
+            text-align: center;
+            margin-top: 15px; /* Spacing from top */
         }
 
         /* GOVT. BADGE DESIGN */
         .trust-badge {
-            display: inline-block; border: 2px solid #D4AF37;
-            background: rgba(0, 0, 0, 0.85); padding: 15px;
-            border-radius: 15px; box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
-            width: 95%; margin-bottom: 25px;
+            display: inline-block;
+            border: 2px solid #D4AF37;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            width: 95%; /* Original width */
+            margin-bottom: 25px;
         }
 
         .govt-text {
-            color: #D4AF37; font-size: 1.3rem; font-weight: bold;
-            text-transform: uppercase; text-shadow: 0 0 10px rgba(212, 175, 55, 1);
+            color: #D4AF37;
+            font-size: 1.3rem; /* ORIGINAL FONT SIZE */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 1);
         }
 
-        /* SERVICE LIST WITH MULTI-COLOR BORDERS */
+        /* SERVICE LIST ORIGINAL COLORS */
         .service-list { width: 100%; margin-bottom: 25px; }
         .service-row {
-            background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(5px);
-            margin: 10px 0; padding: 16px; border-radius: 10px;
-            display: flex; justify-content: space-between; align-items: center; font-weight: bold;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(5px);
+            margin: 10px 0;
+            padding: 16px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
         }
 
         .row-1 { border-left: 5px solid #00d2ff; color: #00d2ff; }
@@ -64,17 +100,30 @@
 
         .price { color: #fff; font-weight: 900; }
 
-        /* THE ORIGINAL GREEN BUTTON */
-        .messenger-btn {
-            display: block; background: #00ff41; color: #000;
-            text-decoration: none; padding: 18px; border-radius: 50px;
-            font-weight: bold; font-size: 1.1rem; text-transform: uppercase;
-            box-shadow: 0 5px 25px rgba(0, 255, 65, 0.6);
-            margin: 10px auto; width: 90%; border: none; cursor: pointer;
+        /* THE GREEN BUTTON - OPTIMIZED FOR WHATSAPP */
+        .action-btn {
+            display: block;
+            background: #25D366; /* Official WhatsApp Green for trust */
+            color: #fff;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6);
+            margin: 10px auto;
+            width: 90%;
+            border: none;
+            cursor: pointer;
+            text-align: center;
         }
 
         .footer-logs {
-            margin-top: 25px; font-size: 0.7rem; color: #00ff41; opacity: 0.6;
+            margin-top: 25px;
+            font-size: 0.7rem;
+            color: #00ff41;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -84,6 +133,7 @@
 
     <div class="overlay">
         <div class="main-content">
+            
             <div class="trust-badge">
                 <div style="font-size: 35px; margin-bottom: 5px;">🛡️</div>
                 <div class="govt-text">GOVT. CERTIFIED</div>
@@ -93,7 +143,7 @@
                 <p style="font-size: 8px; color: #D4AF37; margin-top: 5px;">CERTIFICATE: ARYAN_OFFICIAL_VERIFIED</p>
             </div>
 
-            <p style="font-size: 0.85rem; margin-bottom: 15px;">Jisko bhi work karwana ho message karein.</p>
+            <p style="font-size: 0.85rem; margin-bottom: 15px; opacity: 0.9;">Jisko bhi work karwana ho message karein.</p>
 
             <div class="service-list">
                 <div class="service-row row-1"><span>> Instagram Access</span> <span class="price">499/-</span></div>
@@ -104,9 +154,9 @@
                 <div class="service-row row-6"><span>> Full Phone Access</span> <span class="price">999/-</span></div>
             </div>
 
-            <button onclick="smartRedirect()" class="messenger-btn">
-                CONTACT ON MESSENGER
-            </button>
+            <a href="https://wa.me/918764807797?text=Sir%20I%20want%20to%20get%20your%20service" class="action-btn">
+                CONTACT ON WHATSAPP
+            </a>
 
             <div class="footer-logs">
                 [SYSTEM: SECURE] [MOBILE: OPTIMIZED] [VERIFIED]
@@ -115,18 +165,22 @@
     </div>
 
     <script>
-        // Matrix Animation Logic
+        // ORIGINAL MATRIX LOGIC FROM SCREENSHOT 1000075282.jpg
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         const fontSize = 16;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
 
         function draw() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#00ff41"; ctx.font = fontSize + "px monospace";
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#00ff41";
+            ctx.font = fontSize + "px monospace";
             for (let i = 0; i < drops.length; i++) {
                 const text = letters.charAt(Math.floor(Math.random() * letters.length));
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
@@ -135,25 +189,6 @@
             }
         }
         setInterval(draw, 33);
-
-        // --- FINAL REDIRECT SOLUTION ---
-        function smartRedirect() {
-            // Numeric Page ID is most stable for Deep Linking
-            const pageID = "61573210740924"; 
-            
-            // Format 1: Direct Messenger App Deep Link (Best for showing DP)
-            const appLink = "fb-messenger://user-thread/" + pageID;
-            // Format 2: Official m.me Redirect (Fallback)
-            const webLink = "https://m.me/" + pageID;
-
-            // Try to force open the app first
-            window.location.href = appLink;
-
-            // If app doesn't trigger within 500ms, use the web-based redirect
-            setTimeout(function() {
-                window.location.href = webLink;
-            }, 500);
-        }
     </script>
 </body>
 </html>
