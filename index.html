@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <meta name="description" content="Professional Account Recovery and Mobile Console Services">
     <title>Govt. Certified Mobile Console</title>
     <style>
-        /* --- ORIGINAL FULL-SIZE STYLE (SCREENSHOT 1000075282.jpg) --- */
         * {
             margin: 0;
             padding: 0;
@@ -19,11 +19,10 @@
             height: 100%;
             width: 100%;
             background-color: #000;
-            overflow: hidden;
-            color: #fff;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            color: #ffffff; /* Improved contrast for accessibility */
         }
 
-        /* MATRIX BACKGROUND (Original Animation) */
         #matrix-canvas {
             position: fixed;
             top: 0;
@@ -39,51 +38,49 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            background: rgba(0, 0, 0, 0.4);
             z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 15px;
-            overflow-y: auto; /* Scrollable on smaller screens */
+            overflow-y: auto;
         }
 
         .main-content {
             width: 100%;
-            max-width: 450px; /* ORIGINAL WIDTH */
+            max-width: 450px;
             z-index: 3;
             text-align: center;
-            margin-top: 15px; /* Spacing from top */
+            margin-top: 15px;
         }
 
-        /* GOVT. BADGE DESIGN */
         .trust-badge {
             display: inline-block;
             border: 2px solid #D4AF37;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95); /* Slightly darker for better text contrast */
             padding: 15px;
             border-radius: 15px;
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
-            width: 95%; /* Original width */
+            width: 95%;
             margin-bottom: 25px;
         }
 
         .govt-text {
-            color: #D4AF37;
-            font-size: 1.3rem; /* ORIGINAL FONT SIZE */
+            color: #FFD700; /* Brighter gold for Accessibility contrast */
+            font-size: 1.35rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 1);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
         }
 
-        /* SERVICE LIST ORIGINAL COLORS */
         .service-list { width: 100%; margin-bottom: 25px; }
         .service-row {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.12); /* Brighter for accessibility */
             backdrop-filter: blur(5px);
             margin: 10px 0;
-            padding: 16px;
+            padding: 18px; /* Increased padding for better touch target */
             border-radius: 10px;
             display: flex;
             justify-content: space-between;
@@ -91,25 +88,25 @@
             font-weight: bold;
         }
 
-        .row-1 { border-left: 5px solid #00d2ff; color: #00d2ff; }
-        .row-2 { border-left: 5px solid #ffcc00; color: #ffcc00; }
-        .row-3 { border-left: 5px solid #ff0055; color: #ff0055; }
-        .row-4 { border-left: 5px solid #00ff41; color: #00ff41; }
-        .row-5 { border-left: 5px solid #bc13fe; color: #bc13fe; }
-        .row-6 { border-left: 5px solid #ff5e00; color: #ff5e00; }
+        /* Improved contrast colors for Accessibility */
+        .row-1 { border-left: 5px solid #00d2ff; color: #57e3ff; }
+        .row-2 { border-left: 5px solid #ffcc00; color: #ffe066; }
+        .row-3 { border-left: 5px solid #ff0055; color: #ff4d88; }
+        .row-4 { border-left: 5px solid #00ff41; color: #4dff7a; }
+        .row-5 { border-left: 5px solid #bc13fe; color: #d466ff; }
+        .row-6 { border-left: 5px solid #ff5e00; color: #ff8c4d; }
 
-        .price { color: #fff; font-weight: 900; }
+        .price { color: #ffffff; font-weight: 900; font-size: 1.1rem; }
 
-        /* THE GREEN BUTTON - OPTIMIZED FOR WHATSAPP */
         .action-btn {
             display: block;
-            background: #25D366; /* Official WhatsApp Green for trust */
-            color: #fff;
+            background: #25D366;
+            color: #ffffff;
             text-decoration: none;
-            padding: 18px;
+            padding: 20px; /* Increased for better Accessibility touch target */
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6);
             margin: 10px auto;
@@ -121,9 +118,10 @@
 
         .footer-logs {
             margin-top: 25px;
-            font-size: 0.7rem;
+            padding-bottom: 20px;
+            font-size: 0.75rem;
             color: #00ff41;
-            opacity: 0.6;
+            opacity: 0.8; /* Higher opacity for readability */
         }
     </style>
 </head>
@@ -134,27 +132,27 @@
     <div class="overlay">
         <div class="main-content">
             
-            <div class="trust-badge">
-                <div style="font-size: 35px; margin-bottom: 5px;">🛡️</div>
-                <div class="govt-text">GOVT. CERTIFIED</div>
-                <div style="font-size: 0.85rem; color: #fff; margin-top: 8px; font-weight: bold;">
+            <div class="trust-badge" role="banner">
+                <div style="font-size: 35px; margin-bottom: 5px;" aria-label="Shield Icon">🛡️</div>
+                <h1 class="govt-text">GOVT. CERTIFIED</h1>
+                <div style="font-size: 0.9rem; color: #ffffff; margin-top: 8px; font-weight: bold;">
                     100% TRUSTED & GENUINE WORK ★★★★★
                 </div>
-                <p style="font-size: 8px; color: #D4AF37; margin-top: 5px;">CERTIFICATE: ARYAN_OFFICIAL_VERIFIED</p>
+                <p style="font-size: 10px; color: #D4AF37; margin-top: 5px; letter-spacing: 0.5px;">CERTIFICATE: ARYAN_OFFICIAL_VERIFIED</p>
             </div>
 
-            <p style="font-size: 0.85rem; margin-bottom: 15px; opacity: 0.9;">Jisko bhi work karwana ho message karein.</p>
+            <p style="font-size: 0.95rem; margin-bottom: 15px; color: #ffffff;">Jisko bhi work karwana ho message karein.</p>
 
-            <div class="service-list">
-                <div class="service-row row-1"><span>> Instagram Access</span> <span class="price">499/-</span></div>
-                <div class="service-row row-2"><span>> Facebook Access</span> <span class="price">499/-</span></div>
-                <div class="service-row row-3"><span>> Snapchat Access</span> <span class="price">499/-</span></div>
-                <div class="service-row row-4"><span>> WhatsApp Login</span> <span class="price">699/-</span></div>
-                <div class="service-row row-5"><span>> Gmail Recovery</span> <span class="price">799/-</span></div>
-                <div class="service-row row-6"><span>> Full Phone Access</span> <span class="price">999/-</span></div>
+            <div class="service-list" role="list">
+                <div class="service-row row-1" role="listitem"><span>> Instagram Access</span> <span class="price">499/-</span></div>
+                <div class="service-row row-2" role="listitem"><span>> Facebook Access</span> <span class="price">499/-</span></div>
+                <div class="service-row row-3" role="listitem"><span>> Snapchat Access</span> <span class="price">499/-</span></div>
+                <div class="service-row row-4" role="listitem"><span>> WhatsApp Login</span> <span class="price">699/-</span></div>
+                <div class="service-row row-5" role="listitem"><span>> Gmail Recovery</span> <span class="price">799/-</span></div>
+                <div class="service-row row-6" role="listitem"><span>> Full Phone Access</span> <span class="price">999/-</span></div>
             </div>
 
-            <a href="https://wa.me/918764807797?text=Sir%20I%20want%20to%20get%20your%20service" class="action-btn">
+            <a href="https://wa.me/918764807797?text=Sir%20I%20want%20to%20get%20your%20service" class="action-btn" aria-label="Contact us on WhatsApp">
                 CONTACT ON WHATSAPP
             </a>
 
@@ -165,11 +163,15 @@
     </div>
 
     <script>
-        // ORIGINAL MATRIX LOGIC FROM SCREENSHOT 1000075282.jpg
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
 
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         const fontSize = 16;
